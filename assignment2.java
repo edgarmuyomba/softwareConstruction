@@ -51,3 +51,20 @@ class Rectangle extends shape{
         return 2*(length + width);
     }
 }
+//Class Circle inherits from the parent class shape
+class Circle extends shape{
+    int radius;
+//construcing the class circle
+public Circle(int x, int y, int radius){
+    super(x, y);
+    this.radius = radius;
+ }
+    //method to find the area of a Circle
+public double area(){
+    return radius*radius;
+}
+public double perimeter(){
+    return 2*(3.14)*radius;
+}
+
+}
