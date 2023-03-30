@@ -61,10 +61,10 @@ public Circle(int x, int y, int radius){
  }
     //method to find the area of a Circle
 public double area(){
-    return radius*radius;
+    return Math.PI*radius*radius;
 }
 public double perimeter(){
-    return 2*(3.14)*radius;
+    return 2*Math.PI*radius;
 }
 
 }
