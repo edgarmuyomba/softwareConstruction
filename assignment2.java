@@ -1,3 +1,5 @@
+import javax.xml.XMLConstants;
+
 abstract class shape {
     // coordinates for the center of the shape. NOT THE REQUIRED WAY, SIMPLY A PLACE HOLDER
     int x, y;
@@ -67,4 +69,19 @@ public double perimeter(){
     return 2*Math.PI*radius;
 }
 
+}
+
+class Posn{
+    int x;
+    int y;
+    public Posn(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+    public int getX(){
+        return x;
+    }
+    public int getY(){
+        return y;
+    }
 }
