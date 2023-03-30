@@ -1,8 +1,9 @@
 import java.lang.Math;
 
+// parent class to the rest of the shape objects
 abstract class shape {
     // coordinates for the center of the shape
-    Posn center;
+    private Posn center;
 
     shape(Posn center) {
         this.center = center;
@@ -13,20 +14,35 @@ abstract class shape {
 
     // function to calculate the area of the shape
     abstract double area();
+
+    // getter to return the center
+    public Posn getCenter() {
+        return center;
+    }
 }
 
 // Position class to hold coordinates x and y
 class Posn {
-    double x, y;
+    private double x, y;
     Posn(double x, double y) {
         this.x = x;
         this.y = y;
+    }
+
+    // getter to return x
+    public double getX() {
+        return x;
+    }
+
+    // getter to return y
+    public double getY() {
+        return y;
     }
 }
 
 // Class Square inherits from the parent class
 class Square extends shape {
-    double side;
+    private double side;
 
     // constructor for the Square class
     public Square(Posn center, double side) {
@@ -43,12 +59,17 @@ class Square extends shape {
     public double perimeter() {
         return 4 * side;
     }
+
+    // getter to return side
+    public double getSide() {
+        return side;
+    }
 }
 
 // Class Rectangle inherits from the parent class shape
 class Rectangle extends shape {
-    double length;
-    double width;
+    private double length;
+    private double width;
 
     // constructor of the Rectangle class
     public Rectangle(Posn center, double length, double width) {
@@ -66,11 +87,21 @@ class Rectangle extends shape {
     public double perimeter() {
         return 2 * (length + width);
     }
+
+    // getter to return length
+    public double getLength() {
+        return length;
+    }
+
+    // getter to return width
+    public double getWidth() {
+        return width;
+    }
 }
 
 // Class Circle inherits from the parent class shape
 class Circle extends shape {
-    int radius;
+    private int radius;
 
     // construcing the class circle
     public Circle(Posn center, int radius) {
@@ -82,9 +113,14 @@ class Circle extends shape {
     public double area() {
         return Math.PI * radius * radius;
     }
-
+     // method to calculate perimeter of circle
     public double perimeter() {
         return 2 * Math.PI * radius;
+    }
+
+    // getter to return the radius
+    public double getRadius() {
+        return radius;
     }
 
 }
@@ -93,34 +129,34 @@ public class assignment2 {
     public static boolean contains (shape Shape, Posn position) {
         if (Shape instanceof Square) {
             // logic to check if coordinates lie within a square
-            Square square = (Square) Shape;
-            double halfSide = square.side / 2;
-            double bottomX = square.center.x - halfSide;
-            double bottomY = square.center.y - halfSide;
-            double topX = square.center.x + halfSide;
-            double topY = square.center.y + halfSide;
-            if ((position.x >= bottomX) && (position.x <= topX) && (position.y >= bottomY) && (position.y <= topY)) {
+            Square square = (Square) Shape; // casting the shape to a square 
+            double halfSide = square.getSide() / 2;
+            double bottomX = square.getCenter().getX() - halfSide;
+            double bottomY = square.getCenter().getY() - halfSide;
+            double topX = square.getCenter().getX() + halfSide;
+            double topY = square.getCenter().getY() + halfSide;
+            if ((position.getX() >= bottomX) && (position.getX() <= topX) && (position.getY() >= bottomY) && (position.getY() <= topY)) {
                 return true;
             } else return false;
         } else if (Shape instanceof Rectangle) {
             // logic to check if coordinates lie within a rectangle
-            Rectangle rectangle = (Rectangle) Shape;
-            double halfLength = rectangle.length / 2;
-            double halfWidth = rectangle.width / 2;
-            double bottomX = rectangle.center.x - halfLength;
-            double bottomY = rectangle.center.y - halfLength;
-            double topX = rectangle.center.x + halfWidth;
-            double topY = rectangle.center.y + halfWidth;
-            if ((position.x >= bottomX) && (position.x <= topX) && (position.y >= bottomY) && (position.y <= topY)) {
+            Rectangle rectangle = (Rectangle) Shape; // casting the shape to a rectangle
+            double halfLength = rectangle.getLength() / 2;
+            double halfWidth = rectangle.getWidth() / 2;
+            double bottomX = rectangle.getCenter().getX() - halfLength;
+            double bottomY = rectangle.getCenter().getY() - halfLength;
+            double topX = rectangle.getCenter().getX() + halfWidth;
+            double topY = rectangle.getCenter().getY() + halfWidth;
+            if ((position.getX() >= bottomX) && (position.getX() <= topX) && (position.getY() >= bottomY) && (position.getY() <= topY)) {
                 return true;
             } else return false;
         } else if (Shape instanceof Circle) {
             // logic to check if coordinates lie within a circle
-            Circle circle = (Circle) Shape;
-            double x = circle.center.x;
-            double y = circle.center.y;
-            double radius = circle.radius;
-            double result = Math.pow((position.x - x), 2) + Math.pow((position.y - y), 2);
+            Circle circle = (Circle) Shape; // casting the shape to a circle
+            double x = circle.getCenter().getX();
+            double y = circle.getCenter().getY();
+            double radius = circle.getRadius();
+            double result = Math.pow((position.getX() - x), 2) + Math.pow((position.getY() - y), 2);
             if (result < Math.pow(radius, 2)) {
                 return true;
             } else return false;
@@ -133,8 +169,11 @@ public class assignment2 {
         Square square1 = new Square(new Posn(0, 0), 4);
         Circle circle1 = new Circle(new Posn(3, -1), 5);
         Rectangle rect1 = new Rectangle(new Posn(0, 0), 6, 4);
+        System.out.println("Area of square1: " + square1.area() + "  Perimeter of square1: " + square1.perimeter());
         System.out.println("Point (2,2) in square1?: " + contains(square1, new Posn(2, 2)));
-        System.out.println("Point (6, 0) in circle1?: " + contains(circle1, new Posn(6, 0)));
+        System.out.println("Area of circle1: " + circle1.area() + "  Perimeter of circle1: " + circle1.perimeter());
+        System.out.println("Point (6,0) in circle1?: " + contains(circle1, new Posn(6, 0)));
+        System.out.println("Area of rectangle1: " + rect1.area() + "  Perimeter of rectangle1: " + rect1.perimeter());
         System.out.println("Point (2,2) in rect1?: " + contains(rect1, new Posn(2, 2)));
     }
 }
