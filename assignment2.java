@@ -1,3 +1,5 @@
+import javax.xml.XMLConstants;
+
 abstract class shape {
     // coordinates for the center of the shape. NOT THE REQUIRED WAY, SIMPLY A PLACE HOLDER
     int x, y;
@@ -87,5 +89,20 @@ class Circle extends shape{
         int dx = x - this.x;
         int dy = y - this.y;
         return dx * dx + dy * dy <= radius * radius;
+    }
+}
+
+class Posn{
+    int x;
+    int y;
+    public Posn(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+    public int getX(){
+        return x;
+    }
+    public int getY(){
+        return y;
     }
 }
