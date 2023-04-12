@@ -1,4 +1,5 @@
 package Shape contains;
+
 public class shapeContains {
     public static boolean contains(shape Shape, Posn position) {
         if (Shape instanceof Square) {
