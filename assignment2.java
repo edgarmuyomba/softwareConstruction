@@ -1,31 +1,9 @@
 import java.lang.Math;
 import Ian.*;
-import Shape.*;
+import Shape.shape;
+import Tina.*;
 
-// Class Circle inherits from the parent class shape
-class Circle extends shape {
-    private double radius;
 
-    // construcing the class circle
-    public Circle(Posn center, int radius) {
-        super(center);
-        this.radius = radius;
-    }
-
-    // method to find the area of a Circle
-    public double area() {
-        return Math.PI * radius * radius;
-    }
-
-    public double perimeter() {
-        return 2 * Math.PI * radius;
-    }
-
-    // getter to return the radius
-    public double getRadius() {
-        return radius;
-    }
-}
 
 public class assignment2 {
     public static boolean contains(shape Shape, Posn position) {
@@ -71,6 +49,7 @@ public class assignment2 {
             return false;
         }
     }
+
 
     public static void main(String[] args) {
         Square square1 = new Square(new Posn(0, 0), 4);
