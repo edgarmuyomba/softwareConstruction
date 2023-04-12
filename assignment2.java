@@ -79,6 +79,8 @@ class Rectangle extends shape {
         return width;
     }
 }
+import Ian.*;
+import Shape.*;
 
 // Class Circle inherits from the parent class shape
 class Circle extends shape {
@@ -102,24 +104,6 @@ class Circle extends shape {
     // getter to return the radius
     public double getRadius() {
         return radius;
-    }
-}
-
-class Posn {
-    private double x;
-    private double y;
-
-    public Posn(double x, double y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    public double getX() {
-        return x;
-    }
-
-    public double getY() {
-        return y;
     }
 }
 
