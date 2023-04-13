@@ -15,8 +15,12 @@ public abstract class shape {
     // function to calculate the area of the shape
     public abstract double area();
 
+    // method to return the string representation of the shape
+    public abstract String toString();
+
     // getter to return the center
     public Posn getCenter() {
         return center;
     }
+
 }

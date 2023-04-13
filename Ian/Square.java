@@ -25,4 +25,8 @@ public class Square extends shape {
     public double getSide() {
         return side;
     }
+
+    public String toString() {
+        return "Square";
+    }
 }

@@ -31,4 +31,8 @@ public class Rectangle extends shape{
     public double getWidth() {
         return width;
     }
+
+    public String toString() {
+        return "Rectangle";
+    }
 }

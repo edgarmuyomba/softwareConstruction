@@ -4,8 +4,6 @@ import Shape.shape;
 import Tina.*;
 import Allan.*;
 
-
-
 public class assignment2 {
     public static void main(String[] args) {
         Square square1 = new Square(new Posn(0, 0), 4);

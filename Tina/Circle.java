@@ -26,4 +26,8 @@ public class Circle extends shape {
     public double getRadius() {
         return radius;
     }
+
+    public String toString() {
+        return "Circle";
+    }
 }
